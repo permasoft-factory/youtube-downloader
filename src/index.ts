@@ -1,10 +1,13 @@
 import { MenuForm } from './forms';
 
-import { clearTerminal } from '@termifier/core';
+import { App, clearTerminal } from '@termifier/core';
+
+const app = new App({ name: 'Youtube Downloader' });
 
 (async () => {
-    const updaterForm = await MenuForm();
+	const menuForm = await MenuForm();
+	app.setForm(menuForm);
 
-    clearTerminal();
-    updaterForm.render();
+	clearTerminal();
+	app.run();
 })();
